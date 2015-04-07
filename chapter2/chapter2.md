@@ -19,6 +19,8 @@ npm install expect.js --save-dev
 
 ## Test-driven Development Time
 
+### Cycle 1
+
 First, open a new file `tests/app.coffee` and write the following codes to the file.
 
 ```CoffeeScript
@@ -34,6 +36,32 @@ mocha --compilers coffee:coffee-script/register app.coffee
 # The result should be:
 # 0 passing (2ms)
 ```
+
+### Cycle 2
+
+We continue to write the test by adding the following codes:
+
+```CoffeeScript
+describe 'server', () ->
+  
+  describe 'homepage',() ->
+    it 'should respond to GET', () ->
+      # Do something here
+```
+
+Run the test again, and we should get:
+
+```
+server
+  homepage
+    ✓ should respond to GET 
+
+1 passing (9ms)
+```
+
+### Cycle 3
+
+TODO(andyccs): continue the cycle
 
 ### Version
 
