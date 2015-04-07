@@ -42,10 +42,10 @@ mocha --compilers coffee:coffee-script/register app.coffee
 We continue to write the test by adding the following codes:
 
 ```CoffeeScript
-describe 'server', () ->
+describe 'server', ->
   
-  describe 'homepage',() ->
-    it 'should respond to GET', () ->
+  describe 'homepage', ->
+    it 'should respond to GET', (done) ->
       # Do something here
 ```
 
@@ -61,7 +61,45 @@ server
 
 ### Cycle 3
 
-TODO(andyccs): continue the cycle
+In cycle, we make GET request to http://localhost:port. Start coding:
+
+```CoffeeScript
+it 'should respond to GET', (done) ->
+  superagent
+    .get 'http://localhost:3000'
+    .end (respond) ->
+      expect respond.status
+        .to.equal 200
+      done()
+```
+
+Run the test, and we should get:
+
+```
+1) server homepage should respond to GET:
+   ReferenceError: superagent is not defined
+```
+
+This is an expected failure, because we haven't install superagent. So to pass this test, we install superagent using npm:
+
+```Shell
+npm install superagent --save
+```
+
+If we run the test again, then we will get the same failure message again because we haven't import superagent, so add the following at the top of the file:
+
+```CoffeeScript
+superagent = require 'superagent'
+```
+
+Run the test, and we should get:
+
+```
+1) server homepage should respond to GET:
+   Uncaught Error: expected [Error: connect ECONNREFUSED] to equal undefined
+```
+
+
 
 ### Version
 
