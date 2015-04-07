@@ -28,7 +28,7 @@ app = require '../app'
 expect = require 'expect.js'
 ```
 
-Then we run the test by using the following commands (we will add it to our makefile eventually):
+Then we run the test by using the following commands:
 
 ```Shell
 mocha --compilers coffee:coffee-script/register app.coffee
