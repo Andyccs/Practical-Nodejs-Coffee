@@ -37,4 +37,4 @@ mocha --compilers coffee:coffee-script/register app.coffee
 
 ### Version
 
-0.1 - April 6, 2015 - Initial description of chapter 1
+0.1 - April 6, 2015 - Initial description of chapter 2
