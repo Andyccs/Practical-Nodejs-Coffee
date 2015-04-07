@@ -172,6 +172,32 @@ Express server listening on port 3000
   1 passing (39ms)
 ```
 
+### Cycle 4
+
+We are not done yet! Now we need to refactor our codes. If we look at our test, we would see the port number is hard coded now. To refactor this, we will start by export the `PORT` variable in `app.coffee` and then use it in its test. 
+
+```CoffeeScript
+if require.main is module
+  boot()
+else
+  ...
+  exports.PORT = PORT
+```
+
+And then in our test: 
+
+```CoffeeScript
+...
+PORT = app.PORT
+...
+superagent
+  .get "http://localhost:#{PORT}"
+  .end (error, respond) ->
+    ...
+```
+
+Run the test again, and we should pass the test. Finally, you should alphabetize your `require` statements and run the test again. 
+
 ### Version
 
 0.1 - April 6, 2015 - Initial description of chapter 2

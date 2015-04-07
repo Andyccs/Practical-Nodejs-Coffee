@@ -1,6 +1,8 @@
+# Imports
 express = require 'express'
 http = require 'http'
 
+# Constants
 PORT = 3000
 
 # Set up application
@@ -27,3 +29,4 @@ else
   console.info 'Running app as a module'
   exports.boot = boot
   exports.shutdown = shutdown
+  exports.PORT = PORT

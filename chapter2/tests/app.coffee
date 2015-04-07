@@ -1,9 +1,14 @@
+# Imports
 app = require '../app'
-expect = require 'expect.js'
-superagent = require 'superagent'
 boot = app.boot
+expect = require 'expect.js'
 shutdown = app.shutdown
+superagent = require 'superagent'
 
+# Constants
+PORT = app.PORT
+
+# Test
 describe 'server', ->
 
   describe 'homepage', ->
@@ -12,7 +17,7 @@ describe 'server', ->
 
     it 'should respond to GET', (done) ->
       superagent
-        .get 'http://localhost:3000'
+        .get "http://localhost:#{PORT}"
         .end (error, respond) ->
           expect error 
             .to.equal null
