@@ -16,6 +16,7 @@ I assume that you already:
 # Chapter
 1. [Chapter 1: Coffee Script Linter](https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter1/chapter1.md)
 2. [Chapter 2: Test-driven Development for Blog Project](https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter2/chapter2.md)
+3. [Chapter 3: Automation with Grunt](https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter3/chapter3.md)
 
 # Main Reference
 
