@@ -67,7 +67,7 @@ In cycle, we make GET request to http://localhost:port. Start coding:
 it 'should respond to GET', (done) ->
   superagent
     .get 'http://localhost:3000'
-    .end (respond) ->
+    .end (error, respond) ->
       expect respond.status
         .to.equal 200
       done()
@@ -80,7 +80,7 @@ Run the test, and we should get:
    ReferenceError: superagent is not defined
 ```
 
-This is an expected failure, because we haven't install superagent. So to pass this test, we install superagent using npm:
+This is an expected failure because we haven't install superagent. So to pass this test, we install superagent using npm:
 
 ```Shell
 npm install superagent --save
@@ -99,7 +99,78 @@ Run the test, and we should get:
    Uncaught Error: expected [Error: connect ECONNREFUSED] to equal undefined
 ```
 
+This is an expected failure because we didn't start the server before running the test. We add a before() method and after method() to start the server and end the server. 
 
+```CoffeeScript
+...
+boot = app.boot
+shutdown = app.shutdown
+
+describe 'server', ->
+
+  describe 'homepage', ->
+    before ->
+      boot()
+
+    it 'should respond to GET', (done) ->
+      ...
+
+    after ->
+      shutdown()
+```
+
+We haven't add method for `boot()` and `shutdown()` yet, so the test will still fail. To pass the test, we will add two methods:
+
+```CoffeeScript
+express = require 'express'
+http = require 'http'
+
+PORT = 3000
+
+app = express()
+app.set 'port', PORT
+
+server = http.createServer app
+
+boot = ->
+  server.listen PORT, ->
+    console.info "Express server listening on port #{PORT}"
+
+shutdown = ->
+  server.close()
+
+if require.main is module
+  server.close()
+else
+  console.info 'Running app as a module'
+  exports.boot = boot
+  exports.shutdown = shutdown
+```
+
+Run the test, and we should get:
+
+```
+1) server homepage should respond to GET:
+   Uncaught Error: expected [Error: Not Found] to equal undefined
+```
+
+We get a different error now, which is great! Now we know that we have started the server, and we can continue to write more code to pass the test. Next, we will handle incoming request. 
+
+```CoffeeScript
+app.all '*', (request, response) ->
+  response.send('')
+```
+
+Run the test, and we should get:
+
+```
+  server
+    homepage
+Express server listening on port 3000
+      ✓ should respond to GET 
+
+  1 passing (39ms)
+```
 
 ### Version
 
