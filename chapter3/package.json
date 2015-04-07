@@ -1,0 +1,35 @@
+{
+  "name": "BlogExpress",
+  "version": "0.1.0",
+  "description": "Test-driven development of blog project using coffeescript",
+  "main": "app.coffee",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Andyccs/Practical-Nodejs-Coffee.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "Coffeescript",
+    "TDD"
+  ],
+  "author": "Andyccs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andyccs/Practical-Nodejs-Coffee/issues"
+  },
+  "homepage": "https://github.com/Andyccs/Practical-Nodejs-Coffee",
+  "dependencies": {
+    "express": "^4.12.3",
+    "superagent": "^1.1.0"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.2.1"
+  }
+}
