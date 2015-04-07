@@ -7,7 +7,7 @@ This chapter is developed based on [Practical Nodejs](https://github.com/azat-co
 
 ## Getting Stated
 
-First setup your project by:
+First setup our project by:
 
 ```Shell
 npm init
@@ -196,7 +196,7 @@ superagent
     ...
 ```
 
-Run the test again, and we should pass the test. Finally, you should alphabetize your `require` statements and run the test again. 
+Run the test again, and we should pass the test. Finally, we should alphabetize our `require` statements and run the test again. 
 
 ### Version
 
