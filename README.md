@@ -14,7 +14,7 @@ I assume that you already:
 3. Understand Test-driven development
 
 # Chapter
-1. [Chapter One: Coffee Script Linter](https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter1/chapter1.md)
+1. [Chapter 1: Coffee Script Linter](https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter1/chapter1.md)
 2. [Chapter 2: Test-driven Development for Blog Project](https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter2/chapter2.md)
 
 # Main Reference
