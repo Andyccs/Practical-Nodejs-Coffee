@@ -27,7 +27,16 @@ Everytime after writing some codes, we should check the terminal for test result
 
 ## API Endpoints
 
-TODO
+We are going to develop Create, Read, Update, Delete (CRUD) API for blog articles. So at the end of this section, we should have the following method:
+
+- GET /api/articles
+- POST /api/articles
+- PUT /api/articles/:id
+- DEL /api/articles/:id
+
+### Cycle 1
+
+
 
 ### Version
 
