@@ -137,7 +137,7 @@ grunt
 ````
 ## Grunt Watch for CoffeeScript
 
-We want to watch all `.coffee' files now. When some changes are made to these files, we will run all the tests again. Imagine that we have two monitor, one is running Sublime Text3, and another is running a terminal with watch. After writing our code, we can know whether our codes are correct by watching the tests running in another monitors. =)
+We want to watch all `.coffee` files now. When some changes are made to these files, we will run all the tests again. Imagine that we have two monitor, one is running Sublime Text3, and another is running a terminal with watch. After writing our code, we can know whether our codes are correct by watching the tests running in another monitors. =)
 
 ```CoffeeScript
 module.exports = (grunt) ->
