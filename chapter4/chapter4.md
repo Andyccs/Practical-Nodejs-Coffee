@@ -90,7 +90,7 @@ We should pass all tests now, but we actually do some hack to pass the test. We 
 
 If we already have some data in persistant storage, the we should get something when we call the GET aricle API. 
 
-TODO: continue writing
+TODO: find a way to mock mongodb or have mongodb fake environment
 
 ### Version
 
