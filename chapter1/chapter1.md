@@ -6,7 +6,7 @@ You need to linter to keep your code clean and consistent! You should checkout t
 1. [Coffee Lint](http://www.coffeelint.org/#install)
 2. [SublimeLint-coffeelint](https://github.com/SublimeLinter/SublimeLinter-coffeelint)
 
-Since coffee script is still relatively young, there is no official style guide yet. You can configure your own coffeelint rule. There are (various modules)[https://www.npmjs.com/search?q=coffeelintrule] that can help you with your own coffelint rule.
+Since coffee script is still relatively young, there is no official style guide yet. You can configure your own coffeelint rule. There are [various modules](https://www.npmjs.com/search?q=coffeelintrule) that can help you with your own coffelint rule.
 
 ## Javascript Users
 
