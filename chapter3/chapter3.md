@@ -113,6 +113,29 @@ grunt mochaTest
 # Done, without errors.
 ```
 
+We probably will run these two commands often. Usually, we will lint all coffeescript first before run the tests. Since they are so commonly used, why not make it even simple? We register a default task for grunt in the last line of `Gruntfile.coffee`, so we can do the following:
+
+```Shell
+grunt
+# Running "coffeelint:all" (coffeelint) task
+# >> 2 files lint free.
+# 
+# Running "mochaTest:test" (mochaTest) task
+# Running app as a module
+# 
+# 
+#   server
+#     homepage
+# Express server listening on port 3000
+#       ✓ should respond to GET
+# 
+# 
+#   1 passing (34ms)
+# 
+# 
+# Done, without errors.
+````
+
 ### Version
 
 0.1 - April 7, 2015 - Initial description of chapter 3
