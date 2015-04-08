@@ -17,7 +17,16 @@ module.exports = (grunt) ->
           clearRequireCache: true
           captureFile: 'gen/test_results.txt'
           require: 'coffee-script/register'
-        src: ['tests/*.coffee']
+        src: ['tests/**/*.coffee']
+      coverage:
+        options:
+          require: 'coffee-coverage/register'
+          quiet: true
+          compilers: 'coffee:coffee-script/register'
+          exclude: 'node_modules, tests, coverage, gen'
+          reporter: 'html-cov'
+          captureFile: 'gen/coverage.html'
+        src: ['tests/**/*.coffee']
 
     watch:
       test:

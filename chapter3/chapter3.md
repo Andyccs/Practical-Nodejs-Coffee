@@ -188,17 +188,46 @@ grunt watch:test
 
 ## Grunt Code Coverage for CoffeeScript
 
+For CoffeeScript code coverage, you must know [coffee-coverage](https://github.com/benbria/coffee-coverage) project. After some trials and errors, I found out this to be the best project for CoffeeScript code coverage. As usual, we install the package using npm, then we run the test using the following commands:
+
 ```Shell
+# Install the package
 npm install -g coffee-coverage
 
+# Run the tests
 mocha --require coffee-coverage/register \
 --compilers coffee:coffee-script/register \
 --exclude 'node_modules, tests, coverage, gen' \
 -R html-cov --bail tests/ > gen/coverage.html
+```
 
-npm install grunt-coffeecov --save-dev
+Such as long commands! Grunt comes to rescue! Unfortunately, grunt doesn't have great modules for CoffeeScript code coverage. If you add the following code to you `Gruntfile.coffee`, you can still get a pretty good results, but not the best. 
+
+```CoffeeScript
+mochaTest:
+  ...
+  coverage:
+    options:
+      require: 'coffee-coverage/register'
+      quiet: true
+      compilers: 'coffee:coffee-script/register'
+      exclude: 'node_modules, tests, coverage, gen'
+      reporter: 'html-cov'
+      captureFile: 'gen/coverage.html'
+    src: ['tests/**/*.coffee']
+```
+
+If you run the following command, you should get your code coverage report under `gen/coverage.html`. Please take note that I actually get a warning when I run the command. 
+
+```Shell
+grunt mochaTest:coverage
+# You probably will get: Aborted due to warnings.
+
+grunt mochaTest:coverage --force
+# You probably will get: Done, but with warnings.
 ```
 
 ### Version
 
 0.1 - April 7, 2015 - Initial description of chapter 3
+0.2 - April 8, 2015 - Grunt Code Coverage for CoffeeScript section
