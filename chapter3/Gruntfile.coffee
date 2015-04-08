@@ -6,16 +6,16 @@ module.exports = (grunt) ->
 
   grunt.initConfig
     coffeelint:
-      all: ['./*.coffee'],
+      all: ['./*.coffee']
       options:
         configFile: 'coffeelint.json'
 
     mochaTest:
       test:
         options:
-          reporter: 'spec',
+          reporter: 'spec'
           clearRequireCache: true
-          captureFile: 'gen/test_results.txt',
+          captureFile: 'gen/test_results.txt'
           require: 'coffee-script/register'
         src: ['tests/*.coffee']
 
