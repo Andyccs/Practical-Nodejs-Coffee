@@ -22,7 +22,6 @@ describe 'server', ->
           expect respond.status
             .to.equal 200
 
-          console.log respond.body
           expect respond.body.articles
             .to.not.equal undefined
           expect respond.body.articles.length
@@ -38,7 +37,6 @@ describe 'server', ->
           expect respond.status
             .to.equal 200
 
-          console.log respond.body
           expect respond.body.articles
             .to.not.equal undefined
           expect respond.body.articles.length

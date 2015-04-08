@@ -92,6 +92,78 @@ If we already have some data in persistant storage, the we should get something 
 
 TODO: find a way to mock mongodb or have mongodb fake environment
 
+## Rendering Webpage
+
+We never test constant, getter and setter. If a request will always give the same response, we don't test it as well. At the same time, we don't know how can such request fails. In this kind of situation, smoke test is the best solution. 
+
+TODO: descibe smoke test
+
+We start by writing smoke test for `/login` in a new file `tests/userRendering.coffee`:
+
+```CoffeeScript
+# Imports
+app = require '../app'
+boot = app.boot
+expect = require 'expect.js'
+shutdown = app.shutdown
+superagent = require 'superagent'
+
+# Constants
+PORT = app.PORT
+
+# Test
+describe 'server', ->
+
+  describe 'user webpage', ->
+    before ->
+      boot()
+
+    it 'should response to /login', (done) ->
+      superagent
+        .get "http://localhost:#{PORT}/login"
+        .end (error, respond) ->
+          expect error 
+            .to.equal null
+          expect respond.status
+            .to.equal 200
+          expect respond.text
+            .to.not.equal ''
+          done()
+
+    after ->
+      shutdown()
+```
+
+The test fails, and we continue by writing codes:
+
+```CoffeeScript
+app.get '/login', (request, response) ->
+  response.send 'hello world'
+```
+
+The test passes now. The test said "I don't care what kind of constant you want to load when I send the request. As long as the response is not empty then I'm fine with that". Programmers have the freedom to load any constant they want to achieve desire results, without testing. If we really want to test which jade template or which html file the server is rendered, then we are testing constant, aren't we?
+
+Now go ahead and copy the [layout.jade]((https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter4/views/layout.jade) and [login.jade]((https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter4/views/login.jade) to your `views` folder. Then, we will replace our previous router code to the following:
+
+```CoffeeScript
+app.get '/login', (request, response) ->
+  response.render 'login'
+```
+
+You should get `Error: No default engine was specified and no extension was provided.` because we haven't configure jade in our `app.coffee`. So let's continue coding:
+
+```CoffeeScript
+# Set up application
+app = express()
+app.set 'port', PORT
+
+VIEWS_PATH = path.join __dirname, 'views'
+app.set 'views', VIEWS_PATH
+app.set 'view engine', 'jade'
+```
+
+Test passes! 
+
 ### Version
 
 0.1 - April 8, 2015 - Initial description of chapter 4

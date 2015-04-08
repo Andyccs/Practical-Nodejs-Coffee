@@ -1,6 +1,7 @@
 # Imports
 express = require 'express'
 http = require 'http'
+path = require 'path'
 
 # Constants
 PORT = 3000
@@ -9,13 +10,20 @@ PORT = 3000
 app = express()
 app.set 'port', PORT
 
+VIEWS_PATH = path.join __dirname, 'views'
+app.set 'views', VIEWS_PATH
+app.set 'view engine', 'jade'
+
 # Routing
 app.get '/api/articles', (request, response) ->
   response.send
     articles:[]
 
+app.get '/login', (request, response) ->
+  response.render 'login'
+
 app.all '*', (request, response) ->
-  response.send('')
+  response.send ''
 
 # Create and start the server
 server = http.createServer app
