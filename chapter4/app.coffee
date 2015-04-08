@@ -10,6 +10,10 @@ app = express()
 app.set 'port', PORT
 
 # Routing
+app.get '/api/articles', (request, response) ->
+  response.send
+    articles:[]
+
 app.all '*', (request, response) ->
   response.send('')
 

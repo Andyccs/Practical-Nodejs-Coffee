@@ -36,7 +36,61 @@ We are going to develop Create, Read, Update, Delete (CRUD) API for blog article
 
 ### Cycle 1
 
+As usual, we start by writing test. We open a new file `tests/articleApi.coffee` and write our test there:
 
+```CoffeeScript
+# Imports
+app = require '../app'
+boot = app.boot
+expect = require 'expect.js'
+shutdown = app.shutdown
+superagent = require 'superagent'
+
+# Constants
+PORT = app.PORT
+
+# Test
+describe 'server', ->
+
+  describe 'article api', ->
+    before ->
+      boot()
+
+    it 'should respond to GET without article', (done) ->
+      superagent
+        .get "http://localhost:#{PORT}/api/articles"
+        .end (error, respond) ->
+          expect respond.status
+            .to.equal 200
+
+          console.log respond.body
+          expect respond.body.articles
+            .to.not.equal undefined
+          expect respond.body.articles.length
+            .to.equal 0
+
+          done()
+
+    after ->
+      shutdown()
+```
+
+We should see the test is failing now (look at your terminal that run grunt watch). Now, we can proceed to next step by writing codes in `app.coffee`:
+
+```CoffeeScript
+# Routing
+app.get '/api/articles', (request, response) ->
+  response.send
+    articles:[]
+```
+
+We should pass all tests now, but we actually do some hack to pass the test. We return an empty array without fetching real data from persistant storage. We should write more test to achieve desired behaviour. 
+
+### Cycle 2
+
+If we already have some data in persistant storage, the we should get something when we call the GET aricle API. 
+
+TODO: continue writing
 
 ### Version
 
