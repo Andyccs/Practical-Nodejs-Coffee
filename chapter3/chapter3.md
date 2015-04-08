@@ -178,6 +178,14 @@ Don't forget to install npm package for watch:
 npm install grunt-contrib-watch --save-dev
 ```
 
+It is show time! Now when we run the following command, the watch will keep watching for file changes. If we tried to edit and save a `.coffee` file, all the tests will be run. If we edit a test file, only the file will be run, not all tests.
+
+```Shell
+grunt watch:test
+# Running "watch:test" (watch) task
+# Waiting...
+```
+
 ### Version
 
 0.1 - April 7, 2015 - Initial description of chapter 3
