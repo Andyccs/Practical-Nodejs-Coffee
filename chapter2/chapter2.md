@@ -1,5 +1,5 @@
-Chapter 2: Test-driven Development for Blog Project
-===================================================
+Chapter 2: Test-driven Development for Blog Project Part 1
+==========================================================
 
 I will develop exactly the same blog project in the book, but using a different approach and language. The book does provide a guideline on how to do test-driven development in Nodejs, but does not use this approach intensively. For example, we only have 3 tests at the end of chapter 5. 
 
@@ -18,6 +18,25 @@ npm install expect.js --save-dev
 ```
 
 ## Test-driven Development Time
+
+In test-driven development, we repeat the following steps:
+
+1. Write test 
+2. Write code to pass test, we can even cheat to pass the test
+3. Refactor code
+
+If we cheat in second step, then we need to write more test to achieve desired codes. 
+
+Test-driven development is a practice. A practice is something that we will do even without being told to do so. We do a practice naturally. Hence, a practice is not something you can learn easily within a day or two. The fact is especially true for test-driven development approach to write code. We were not first being taught to write tests first before codes in school, that's the main reasons for us not to feel natural to do test-driven development. We also tend to give many excuses to avoid writing tests, such as
+
+- Write tests slow me down
+- Deadline approaching
+- Waste of time and effort
+- The feature works prefectly! So why should I test?
+
+We are well informed that "testing is important". I believe most of the audiences here know unit testing, integration testing, system testing, black box testing and white box testing. Yet, we are still refuse to do testing. 
+
+I'm not a teacher and I'm not here to convience you about the benefits of test-driven development. I just want to let you know the reason for me to wrote the rest of the codes. 
 
 ### Cycle 1
 
