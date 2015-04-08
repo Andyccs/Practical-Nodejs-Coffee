@@ -186,6 +186,19 @@ grunt watch:test
 # Waiting...
 ```
 
+## Grunt Code Coverage for CoffeeScript
+
+```Shell
+npm install -g coffee-coverage
+
+mocha --require coffee-coverage/register \
+--compilers coffee:coffee-script/register \
+--exclude 'node_modules, tests, coverage, gen' \
+-R html-cov --bail tests/ > gen/coverage.html
+
+npm install grunt-coffeecov --save-dev
+```
+
 ### Version
 
 0.1 - April 7, 2015 - Initial description of chapter 3
