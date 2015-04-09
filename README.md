@@ -18,6 +18,7 @@ I assume that you already:
 2. [Chapter 2: Test-driven Development for Blog Project Part 1](https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter2/chapter2.md)
 3. [Chapter 3: Automation with Grunt](https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter3/chapter3.md)
 4. [Test-driven Development for Blog Project Part 2](https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter4/chapter4.md)
+
 # Main Reference
 
 [Practical Nodejs](https://github.com/azat-co/practicalnode)
