@@ -143,7 +143,7 @@ app.get '/login', (request, response) ->
 
 The test passes now. The test said "I don't care what kind of constant you want to load when I send the request. As long as the response is not empty then I'm fine with that". Programmers have the freedom to load any constant they want to achieve desire results, without testing. If we really want to test which jade template or which html file the server is rendered, then we are testing constant, aren't we?
 
-Now go ahead and copy the [layout.jade]((https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter4/views/layout.jade) and [login.jade]((https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter4/views/login.jade) to your `views` folder. Then, we will replace our previous router code to the following:
+Now go ahead and copy the [layout.jade](https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter4/views/layout.jade) and [login.jade](https://github.com/Andyccs/Practical-Nodejs-Coffee/blob/master/chapter4/views/login.jade) to your `views` folder. Then, we will replace our previous router code to the following:
 
 ```CoffeeScript
 app.get '/login', (request, response) ->
